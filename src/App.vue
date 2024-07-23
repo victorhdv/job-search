@@ -1,3 +1,3 @@
 <template>
-  <h1>Hi, app.vue of JOB-SEARCH</h1>
+  <h1 class="m-8 text-center text-6xl">Hi VUE</h1>
 </template>

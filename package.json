@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "vue": "^3.4.29"
   },
   "devDependencies": {
