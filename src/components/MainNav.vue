@@ -7,21 +7,8 @@
         }}</a>
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
-            <li class="h-full"><a href="/" class="flex h-full items-center py-2.5">Teams</a></li>
-            <li class="ml-9 h-full">
-              <a href="/" class="flex h-full items-center py-2.5">Location</a>
-            </li>
-            <li class="ml-9 h-full">
-              <a href="/" class="flex h-full items-center py-2.5">Life at Vale Corp</a>
-            </li>
-            <li class="ml-9 h-full">
-              <a href="/" class="flex h-full items-center py-2.5">How we hire</a>
-            </li>
-            <li class="ml-9 h-full">
-              <a href="/" class="flex h-full items-center py-2.5">Students</a>
-            </li>
-            <li class="ml-9 h-full">
-              <a href="/" class="flex h-full items-center py-2.5">Jobs</a>
+            <li v-for:="item in menuItems" class="ml-9 h-full">
+              <a href="/" class="flex h-full items-center py-2.5">{{ item }}</a>
             </li>
           </ul>
         </nav>
@@ -36,7 +23,8 @@ export default {
   data() {
     return {
       company: 'Vale Careers',
-      url: 'https://github.com/victorhdv'
+      url: 'https://github.com/victorhdv',
+      menuItems: ['Teams', 'Locations', 'Life at Vale Corp', 'How we hire', 'Students', 'Jobs']
     }
   }
 }
