@@ -8,7 +8,6 @@
           class="flex h-full items-center text-xl"
           >{{ company }}</a
         >
-        <h2 class="ml-8 flex h-full items-center text-xs">Developed by {{ author }}</h2>
       </div>
     </div>
   </header>
@@ -19,8 +18,7 @@ export default {
   name: 'MainNav',
   data() {
     return {
-      company: 'Vale Careers',
-      author: 'Victor Vale'
+      company: 'Vale Careers'
     }
   }
 }
