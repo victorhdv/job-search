@@ -7,7 +7,7 @@
         }}</a>
         <nav class="ml-12 h-full">
           <ul class="flex h-full list-none">
-            <li v-for:="item in menuItems" class="ml-9 h-full">
+            <li v-for="item in menuItems" v-bind:key="item" class="ml-9 h-full first:ml-0">
               <a href="/" class="flex h-full items-center py-2.5">{{ item }}</a>
             </li>
           </ul>
