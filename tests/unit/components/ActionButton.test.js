@@ -7,7 +7,7 @@ describe('ActionButton', () => {
     render(ActionButton, {
       props: {
         text: 'Click me',
-        type: 'primary'
+        buttonType: 'primary'
       }
     })
 
