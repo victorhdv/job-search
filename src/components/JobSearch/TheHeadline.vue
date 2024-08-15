@@ -1,9 +1,12 @@
 <template>
-  <section>
+  <section class="mb-16">
     <h1 class="mb-14 text-8xl font-bold tracking-tighter">
-      <span :class="actionClasses"> {{ action }}</span> <br />for everyone
+      <div class="transition-shadow">
+        <span :class="actionClasses"> {{ action }}</span> <br />
+      </div>
+      <div class="mt-0 text-8xl font-bold tracking-tighter">for everyone</div>
     </h1>
-    <h2 class="text-3xl font-light">Find your next job at Vale Corp.</h2>
+    <h2 class="mb-14 text-3xl font-light">Find your next job at Vale Corp.</h2>
   </section>
 </template>
 

@@ -15,7 +15,7 @@
 
         <div class="ml-auto flex h-full items-center">
           <profile-image v-if="isLoggedIn" />
-          <action-button v-else text="Sign in" button-type="secondary" v-on:click="loginUser" />
+          <action-button v-else text="Sign in" v-on:click="loginUser" />
         </div>
       </div>
       <sub-nav v-if="isLoggedIn" />
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import ActionButton from './ActionButton.vue'
+import ActionButton from '../Shared/ActionButton.vue'
 import ProfileImage from './ProfileImage.vue'
 import SubNav from './SubNav.vue'
 

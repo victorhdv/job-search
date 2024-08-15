@@ -1,4 +1,4 @@
-import SubNav from '@/components/SubNav.vue'
+import SubNav from '@/components/Navigation/SubNav.vue'
 import { render, screen } from '@testing-library/vue'
 import { describe, expect } from 'vitest'
 
