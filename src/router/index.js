@@ -7,16 +7,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HomeView
-  }
+  },
   {
-    path: '/job/results',
+    path: '/jobs/results',
     name: 'JobResults',
     component: JobResultsView
   }
 ]
 
 const router = createRouter({
-  history:createWebHashHistory(),
+  history: createWebHashHistory(),
   routes
 })
 
