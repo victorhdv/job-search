@@ -5,8 +5,15 @@ import { RouterLinkStub } from '@vue/test-utils'
 
 describe('MainNav', () => {
   const renderMainNav = () => {
+    const mockRoute = {
+      name: 'Home'
+    }
+
     render(MainNav, {
       global: {
+        mocks: {
+          $route: mockRoute
+        },
         stubs: {
           FontAwesomeIcon: true,
           RouterLink: RouterLinkStub
