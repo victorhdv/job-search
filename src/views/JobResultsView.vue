@@ -7,7 +7,7 @@
 
 <script>
 import JobFilterSideBar from '@/components/JobResults/JobFiltersSideBar/JobFilterSideBar.vue'
-import JobListings from '@/components/JobResults/JobFiltersSideBar/JobListings.vue'
+import JobListings from '@/components/JobResults/JobListings.vue'
 
 export default {
   name: 'JobResultsView',
