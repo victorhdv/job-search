@@ -5,32 +5,40 @@
     >
       <div class="mx-8 border-b border-solid border-brand-gray-2 pb-2 pt-5">
         <h2 class="mb-2 text-2xl">
-          Regional Delivery Head, Data Analytics, Google Cloud Consulting
+          {{ job.title }}
         </h2>
         <div class="flex flex-row align-middle">
           <div class="mr-5">
-            <span>Google</span>
+            <font-awesome-icon :icon="['fas', 'building']" class="mr-1" />
+            <span>{{ job.organization }}</span>
           </div>
 
           <div>
-            <span>Singapore; Tokyo, Japan</span>
+            <ul>
+              <font-awesome-icon :icon="['fas', 'location-dot']" class="mr-1" />
+              <li
+                v-for="location in job.locations"
+                :key="location"
+                class="mr-1 inline-block"
+              >
+                {{ location }};
+              </li>
+            </ul>
           </div>
         </div>
       </div>
       <hr />
+
       <div class="px-8 py-4">
         <div>
           <h3 class="mb-2 mt-1">Minimum qualifications</h3>
           <div>
             <ul class="list-disc pl-8">
-              <li>Bachelor's degree or equivalent practical experience.</li>
-              <li>
-                15 years of experience in consulting, IT services, or program
-                and project management as a service delivery leader.
-              </li>
-              <li>
-                Experience in cloud migration, cloud integration or any
-                cloud-native, or cloud-based applications development.
+              <li
+                v-for="qualification in job.minimumQualifications"
+                :key="qualification"
+              >
+                {{ qualification }}
               </li>
             </ul>
           </div>

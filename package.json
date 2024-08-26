@@ -9,7 +9,6 @@
     "preview": "vite preview",
     "test": "vitest --environment jsdom --coverage",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
     "back": "json-server --watch db.json"
   },
   "dependencies": {
