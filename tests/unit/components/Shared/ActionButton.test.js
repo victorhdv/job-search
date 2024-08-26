@@ -1,34 +1,34 @@
-import { render, screen } from '@testing-library/vue'
-import ActionButton from '@/components/Shared/ActionButton.vue'
-import { describe, expect } from 'vitest'
+import { render, screen } from "@testing-library/vue";
+import ActionButton from "@/components/Shared/ActionButton.vue";
+import { describe, expect } from "vitest";
 
-describe('ActionButton', () => {
-  it('renders text', () => {
+describe("ActionButton", () => {
+  it("renders text", () => {
     render(ActionButton, {
       props: {
-        text: 'Click me',
-        buttonType: 'primary'
-      }
-    })
+        text: "Click me",
+        buttonType: "primary",
+      },
+    });
 
-    const button = screen.getByRole('button', {
-      name: /click me/i
-    })
-    expect(button).toBeInTheDocument
-  })
+    const button = screen.getByRole("button", {
+      name: /click me/i,
+    });
+    expect(button).toBeInTheDocument;
+  });
 
-  it('applies one of several styles to button', () => {
+  it("applies one of several styles to button", () => {
     render(ActionButton, {
       props: {
-        text: 'Click me',
-        buttonType: 'primary'
-      }
-    })
+        text: "Click me",
+        buttonType: "primary",
+      },
+    });
 
-    const button = screen.getByRole('button', {
-      name: /click me/i
-    })
+    const button = screen.getByRole("button", {
+      name: /click me/i,
+    });
 
-    expect(button).toHaveClass('primary')
-  })
-})
+    expect(button).toHaveClass("primary");
+  });
+});

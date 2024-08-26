@@ -11,11 +11,11 @@
 
 <script>
 export default {
-  name: 'SubNav',
+  name: "SubNav",
   computed: {
     onJobResultsPage() {
-      return this.$route.name === 'JobResults'
-    }
-  }
-}
+      return this.$route.name === "JobResults";
+    },
+  },
+};
 </script>

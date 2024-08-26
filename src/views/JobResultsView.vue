@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import JobFilterSideBar from '@/components/JobResults/JobFiltersSideBar/JobFilterSideBar.vue'
-import JobListings from '@/components/JobResults/JobListings.vue'
+import JobFilterSideBar from "@/components/JobResults/JobFiltersSideBar/JobFilterSideBar.vue";
+import JobListings from "@/components/JobResults/JobListings.vue";
 
 export default {
-  name: 'JobResultsView',
+  name: "JobResultsView",
   components: { JobFilterSideBar, JobListings },
   methods: {
     /* diferentes formas de declarar o path
@@ -19,6 +19,6 @@ export default {
        this.$router.push({ path: '/' }) //#2
        this.$router.push({ name: 'Home' }) //#3
     }*/
-  }
-}
+  },
+};
 </script>

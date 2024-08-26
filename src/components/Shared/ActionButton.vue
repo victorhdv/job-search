@@ -1,32 +1,32 @@
 <template>
-  <button v-bind:class="buttonClass">
+  <button :class="buttonClass">
     {{ text }}
   </button>
 </template>
 
 <script>
 export default {
-  name: 'ActionButton',
+  name: "ActionButton",
   props: {
     text: {
       type: String,
-      required: true
+      required: true,
     },
     buttonType: {
       type: String,
       required: false,
-      default: 'primary',
+      default: "primary",
       validator(value) {
-        return ['primary', 'secondary'].includes(value)
-      }
-    }
+        return ["primary", "secondary"].includes(value);
+      },
+    },
   },
   computed: {
     buttonClass() {
-      return { [this.buttonType]: true }
-    }
-  }
-}
+      return { [this.buttonType]: true };
+    },
+  },
+};
 </script>
 
 <style scoped>

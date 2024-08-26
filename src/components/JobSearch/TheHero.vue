@@ -17,40 +17,40 @@
 </template>
 
 <script>
-import TheHeadline from './TheHeadline.vue'
-import JobSearchForm from './JobSearchForm.vue'
-import nextElementInList from '@/utils/nextElementInList'
+import TheHeadline from "./TheHeadline.vue";
+import JobSearchForm from "./JobSearchForm.vue";
+import nextElementInList from "@/utils/nextElementInList";
 
 export default {
-  name: 'TheHero',
+  name: "TheHero",
   components: {
     TheHeadline,
-    JobSearchForm
+    JobSearchForm,
   },
   data() {
     return {
-      image: 'https://www.gstatic.com/hiring/CportalUi/hero_1_1x.png',
-      interval: null
-    }
+      image: "https://www.gstatic.com/hiring/CportalUi/hero_1_1x.png",
+      interval: null,
+    };
   },
   created() {
-    this.changeImg()
+    this.changeImg();
   },
   beforeUnmount() {
-    clearInterval(this.interval)
+    clearInterval(this.interval);
   },
   methods: {
     changeImg() {
       this.interval = setInterval(() => {
         const images = [
-          'https://www.gstatic.com/hiring/CportalUi/hero_1_1x.png',
-          'https://www.gstatic.com/hiring/CportalUi/hero_2_1x.png',
-          'https://www.gstatic.com/hiring/CportalUi/hero_3_1x.png',
-          'https://www.gstatic.com/hiring/CportalUi/hero_4_1x.png'
-        ]
-        this.image = nextElementInList(images, this.image)
-      }, 3000)
-    }
-  }
-}
+          "https://www.gstatic.com/hiring/CportalUi/hero_1_1x.png",
+          "https://www.gstatic.com/hiring/CportalUi/hero_2_1x.png",
+          "https://www.gstatic.com/hiring/CportalUi/hero_3_1x.png",
+          "https://www.gstatic.com/hiring/CportalUi/hero_4_1x.png",
+        ];
+        this.image = nextElementInList(images, this.image);
+      }, 3000);
+    },
+  },
+};
 </script>

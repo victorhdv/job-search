@@ -20,37 +20,45 @@
 
       <div class="relative flex h-full flex-1 items-center pl-3">
         <label for="location" class="absolute -top-10 left-0">Where?</label>
-        <text-input id="location" v-model="location" placeholder="Los Angeles" />
+        <text-input
+          id="location"
+          v-model="location"
+          placeholder="Los Angeles"
+        />
       </div>
     </div>
 
-    <action-button text="Search" button-type="secondary" class="rounded-r-3xl" />
+    <action-button
+      text="Search"
+      button-type="secondary"
+      class="rounded-r-3xl"
+    />
   </form>
 </template>
 
 <script>
-import ActionButton from '../Shared/ActionButton.vue'
-import TextInput from '../Shared/TextInput.vue'
+import ActionButton from "../Shared/ActionButton.vue";
+import TextInput from "../Shared/TextInput.vue";
 
 export default {
-  name: 'JobSearchForm',
+  name: "JobSearchForm",
   components: { ActionButton, TextInput },
   data() {
     return {
-      role: '',
-      location: ''
-    }
+      role: "",
+      location: "",
+    };
   },
   methods: {
     searchForJobs() {
       this.$router.push({
-        name: 'JobResults',
+        name: "JobResults",
         query: {
           role: this.role,
-          location: this.location
-        }
-      })
-    }
+          location: this.location,
+        },
+      });
+    },
     // updateRole(payload) {
     //   this.role = payload
     //   console.log(this.role)
@@ -59,6 +67,6 @@ export default {
     //   this.location = payload
     //   console.log(this.location)
     // }
-  }
-}
+  },
+};
 </script>
