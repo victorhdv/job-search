@@ -37,10 +37,9 @@ describe("MainNav", () => {
     expect(navigationMenuTexts).toEqual([
       "Teams",
       "Locations",
-      "Life at Vale Corp",
-      "How we hire",
-      "Students",
+      "Benefits",
       "Jobs",
+      "Students",
     ]);
   });
 

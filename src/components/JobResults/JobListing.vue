@@ -1,7 +1,7 @@
 <template>
   <li class="mb-7">
     <div
-      class="mx-auto block rounded-3xl border border-solid border-brand-gray-2 bg-white hover:shadow-gray"
+      class="block rounded-3xl border border-solid border-brand-gray-2 bg-white hover:shadow-gray mx-28"
     >
       <div class="mx-8 border-b border-solid border-brand-gray-2 pb-2 pt-5">
         <h2 class="mb-2 text-2xl">

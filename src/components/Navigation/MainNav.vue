@@ -52,10 +52,9 @@ export default {
       menuItems: [
         { text: "Teams", url: "/" },
         { text: "Locations", url: "/" },
-        { text: "Life at Vale Corp", url: "/" },
-        { text: "How we hire", url: "/" },
-        { text: "Students", url: "/" },
+        { text: "Benefits", url: "/" },
         { text: "Jobs", url: "/jobs/results" },
+        { text: "Students", url: "/" },
       ],
       isLoggedIn: false,
     };
