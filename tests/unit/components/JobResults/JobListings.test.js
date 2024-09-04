@@ -1,10 +1,11 @@
 import JobListings from "@/components/JobResults/JobListings.vue";
 import { screen, render } from "@testing-library/vue";
-import axios from "axios";
 import { RouterLinkStub } from "@vue/test-utils";
 import { describe, expect } from "vitest";
+import { useJobsStore } from "@/stores/jobs";
+import { createTestingPinia } from "@pinia/testing";
 
-vi.mock("axios");
+const pinia = createTestingPinia();
 
 const renderJobListings = (routeOptions = {}) => {
   const $route = { query: {}, ...routeOptions };
@@ -17,25 +18,22 @@ const renderJobListings = (routeOptions = {}) => {
         FontAwesomeIcon: true,
         RouterLink: RouterLinkStub,
       },
+      plugins: [pinia],
     },
   });
 };
 
 describe("JobListings", () => {
   it("fetches jobs", () => {
-    axios.get.mockResolvedValue({ data: [] });
-
     renderJobListings({ query: { page: "5" } });
-
-    const baseUrl = import.meta.env.VITE_APP_API_URL;
-
-    expect(axios.get).toHaveBeenCalledWith(`${baseUrl}/jobs`);
+    const jobStore = useJobsStore();
+    expect(jobStore.FETCH_JOBS).toHaveBeenCalled();
   });
 
   it("creates a joblisting for 10 jobs", async () => {
-    axios.get.mockResolvedValue({ data: Array(10).fill({}) });
-
     renderJobListings({ query: { page: "1" } });
+    const jobStore = useJobsStore();
+    jobStore.jobs = Array(15).fill({});
 
     const jobListings = await screen.findAllByRole("listitem");
 
@@ -58,9 +56,9 @@ describe("JobListings", () => {
 
   describe("when user is on first page", () => {
     it("does not show link to previous page", async () => {
-      axios.get.mockResolvedValue({ data: Array(10).fill({}) });
-
       renderJobListings({ query: { page: "1" } });
+      const jobStore = useJobsStore();
+      jobStore.jobs = Array(15).fill({});
 
       const listItens = await screen.findAllByRole("listitem");
       const previousLink = screen.queryByRole("link", { name: /previous/i });
@@ -69,9 +67,9 @@ describe("JobListings", () => {
     });
 
     it("show link to next page", async () => {
-      axios.get.mockResolvedValue({ data: Array(20).fill({}) });
-
       renderJobListings({ query: { page: "1" } });
+      const jobStore = useJobsStore();
+      jobStore.jobs = Array(20).fill({});
 
       const listItens = await screen.findAllByRole("listitem");
       const nextLink = screen.queryByRole("link", { name: /next/i });
@@ -82,9 +80,9 @@ describe("JobListings", () => {
 
   describe("when user is on last page", () => {
     it("does not show link to next page", async () => {
-      axios.get.mockResolvedValue({ data: Array(100).fill({}) });
-
       renderJobListings({ query: { page: "10" } });
+      const jobStore = useJobsStore();
+      jobStore.jobs = Array(100).fill({});
 
       const listItens = await screen.findAllByRole("listitem");
       const nextLink = screen.queryByRole("link", { name: /next/i });
@@ -93,9 +91,9 @@ describe("JobListings", () => {
     });
 
     it("shows link to previous page", async () => {
-      axios.get.mockResolvedValue({ data: Array(100).fill({}) });
-
       renderJobListings({ query: { page: "10" } });
+      const jobStore = useJobsStore();
+      jobStore.jobs = Array(100).fill({});
 
       const listItens = await screen.findAllByRole("listitem");
       const previousLink = screen.queryByRole("link", { name: /previous/i });
