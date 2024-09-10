@@ -4,21 +4,30 @@
   >
     <section class="pb-5">
       <div class="flex flex-row justify-between">
-        <h3 class="my-4 text-base font-semibold">Conteúdo</h3>
+        <h3 class="my-4 text-base font-semibold">What do you want to do?</h3>
         <div class="flex items-center text-sm">
           <action-button text=" Clear filters" button-type="secondary" />
         </div>
       </div>
-      <collapsible-accordion />
+      <collapsible-accordion header="Teste EMPTY" />
+      <collapsible-accordion header=" outro teste">
+        <p>teste de p</p>
+      </collapsible-accordion>
+      <job-filters-side-bar-organizations />
     </section>
   </div>
 </template>
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue";
 import CollapsibleAccordion from "@/components/Shared/CollapsibleAccordion.vue";
+import JobFiltersSideBarOrganizations from "./JobFiltersSideBarOrganizations.vue";
 
 export default {
   name: "JobFilterSideBar",
-  components: { ActionButton, CollapsibleAccordion },
+  components: {
+    ActionButton,
+    CollapsibleAccordion,
+    JobFiltersSideBarOrganizations,
+  },
 };
 </script>

@@ -1,17 +1,17 @@
 <template>
   <div class="flex w-full flex-row flex-nowrap">
-    <job-filter-side-bar />
+    <job-filters-side-bar />
     <job-listings />
   </div>
 </template>
 
 <script>
-import JobFilterSideBar from "@/components/JobResults/JobFiltersSideBar/JobFilterSideBar.vue";
+import JobFiltersSideBar from "@/components/JobResults/JobFiltersSideBar/JobFiltersSideBar.vue";
 import JobListings from "@/components/JobResults/JobListings.vue";
 
 export default {
   name: "JobResultsView",
-  components: { JobFilterSideBar, JobListings },
+  components: { JobFiltersSideBar, JobListings },
   methods: {
     /* diferentes formas de declarar o path
     goToHome() {
