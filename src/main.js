@@ -11,11 +11,13 @@ import {
   faSearch,
   faLocationDot,
   faBuilding,
+  faAngleDown,
+  faAngleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { createPinia } from "pinia";
 
 /* add icons to the library */
-library.add(faSearch, faLocationDot, faBuilding);
+library.add(faSearch, faLocationDot, faBuilding, faAngleDown, faAngleUp);
 
 const pinia = createPinia();
 
