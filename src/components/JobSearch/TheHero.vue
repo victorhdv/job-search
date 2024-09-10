@@ -1,6 +1,6 @@
 <template>
-  <main>
-    <section class="flex h-screen flex-col pb-20 pt-28">
+  <main class="flex h-screen flex-col">
+    <section class="pb-20 pt-28">
       <div class="ml-16 grid grid-cols-11">
         <div class="col-span-1 col-start-1"></div>
         <div class="col-span-5 col-start-2">
@@ -13,6 +13,32 @@
         <div class="col-span-1 col-start-11"></div>
       </div>
     </section>
+
+    <spot-light class="flex flex-row justify-center pb-16">
+      <!-- <template #default="slotProps"> Uma forma de declarar o scoped slot-->
+      <!-- Segunda opção quebrando o objeto -->
+      <template #default="{ img, title, description }">
+        <div
+          class="mx-5 flex flex-col h-96 w-72 rounded-lg border bg-brand-gray-2"
+        >
+          <img :src="img" alt="" class="object-contain" />
+
+          <div class="h-48 px-6 py-4 mt-3">
+            <h3 class="text-lg font-medium">
+              {{ title }}
+            </h3>
+
+            <p class="">{{ description }}</p>
+          </div>
+
+          <router-link
+            to="/jobs/results"
+            class="px-6 pb-4 text-sm text-brand-blue-1"
+            >See jobs</router-link
+          >
+        </div>
+      </template>
+    </spot-light>
   </main>
 </template>
 
@@ -20,12 +46,14 @@
 import TheHeadline from "./TheHeadline.vue";
 import JobSearchForm from "./JobSearchForm.vue";
 import nextElementInList from "@/utils/nextElementInList";
+import SpotLight from "./SpotLight.vue";
 
 export default {
   name: "TheHero",
   components: {
     TheHeadline,
     JobSearchForm,
+    SpotLight,
   },
   data() {
     return {
