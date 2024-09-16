@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/vue";
 import axios from "axios";
 import SpotLight from "@/components/JobSearch/SpotLight.vue";
-import { describe, expect } from "vitest";
-import { data } from "autoprefixer";
 
 vi.mock("axios");
 
