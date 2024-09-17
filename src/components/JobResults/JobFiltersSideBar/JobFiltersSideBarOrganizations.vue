@@ -16,7 +16,7 @@
               class="mr-3"
               @:change="selectOrganization"
             />
-            <label for="item">{{ item }}</label>
+            <label :for="item">{{ item }}</label>
           </li>
         </ul>
       </fieldset>
