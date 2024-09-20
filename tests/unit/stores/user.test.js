@@ -16,6 +16,11 @@ describe("state", () => {
     const store = useUserStore();
     expect(store.selectedOrganizations).toEqual([]);
   });
+
+  it("stores job types to filter", () => {
+    const store = useUserStore();
+    expect(store.selectedJobTypes).toEqual([]);
+  });
 });
 
 describe("actions", () => {
@@ -32,6 +37,14 @@ describe("actions", () => {
       const store = useUserStore();
       store.ADD_SELECTED_ORGANIZATIONS(["org 1", "org 2"]);
       expect(store.selectedOrganizations).toEqual(["org 1", "org 2"]);
+    });
+  });
+
+  describe("ADD_SELECTED_JOB_TYPES", () => {
+    it("updates job types chosen to filter jobs", () => {
+      const store = useUserStore();
+      store.ADD_SELECTED_JOB_TYPES(["type 1", "type 2"]);
+      expect(store.selectedJobTypes).toEqual(["type 1", "type 2"]);
     });
   });
 });

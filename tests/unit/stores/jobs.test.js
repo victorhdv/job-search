@@ -53,6 +53,21 @@ describe("getters", () => {
     });
   });
 
+  describe("UNIQUE_JOB_TYPES", () => {
+    it("find unique job types", () => {
+      const store = useJobsStore();
+      store.jobs = [
+        { jobType: "intern" },
+        { jobType: "part-time" },
+        { jobType: "intern" },
+      ];
+
+      const result = store.UNIQUE_JOB_TYPES;
+
+      expect(result).toEqual(new Set(["intern", "part-time"]));
+    });
+  });
+
   describe("FILTERED_JOBS_BY_ORGANIZATIONS", () => {
     it("identifies jobs related to checked organizations", () => {
       const jobstore = useJobsStore();
@@ -91,6 +106,46 @@ describe("getters", () => {
           { organization: "microsoft" },
         ]);
       });
+    });
+  });
+});
+
+describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
+  it("identifies jobs related to checked job types", () => {
+    const jobstore = useJobsStore();
+    jobstore.jobs = [
+      { jobType: "intern" },
+      { jobType: "part-time" },
+      { jobType: "full-time" },
+    ];
+
+    const useStore = useUserStore();
+    useStore.selectedJobTypes = ["intern", "part-time"];
+
+    const result = jobstore.FILTERED_JOBS_BY_JOB_TYPES;
+
+    expect(result).toEqual([{ jobType: "intern" }, { jobType: "part-time" }]);
+  });
+
+  describe("user has not selected any job type", () => {
+    it("returns all job types", () => {
+      const jobstore = useJobsStore();
+      jobstore.jobs = [
+        { jobType: "intern" },
+        { jobType: "part-time" },
+        { jobType: "full-time" },
+      ];
+
+      const useStore = useUserStore();
+      useStore.selectedJobTypes = [];
+
+      const result = jobstore.FILTERED_JOBS_BY_JOB_TYPES;
+
+      expect(result).toEqual([
+        { jobType: "intern" },
+        { jobType: "part-time" },
+        { jobType: "full-time" },
+      ]);
     });
   });
 });
