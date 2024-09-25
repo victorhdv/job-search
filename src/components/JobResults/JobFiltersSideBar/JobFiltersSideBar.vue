@@ -9,25 +9,24 @@
           <action-button text=" Clear filters" button-type="secondary" />
         </div>
       </div>
-      <collapsible-accordion header="Teste EMPTY" />
-      <collapsible-accordion header=" outro teste">
-        <p>teste de p</p>
-      </collapsible-accordion>
+
+      <job-filters-side-bar-job-types />
+
       <job-filters-side-bar-organizations />
     </section>
   </div>
 </template>
 <script>
 import ActionButton from "@/components/Shared/ActionButton.vue";
-import CollapsibleAccordion from "@/components/Shared/CollapsibleAccordion.vue";
+import JobFiltersSideBarJobTypes from "./JobFiltersSideBarJobTypes.vue";
 import JobFiltersSideBarOrganizations from "./JobFiltersSideBarOrganizations.vue";
 
 export default {
   name: "JobFilterSideBar",
   components: {
     ActionButton,
-    CollapsibleAccordion,
     JobFiltersSideBarOrganizations,
+    JobFiltersSideBarJobTypes,
   },
 };
 </script>

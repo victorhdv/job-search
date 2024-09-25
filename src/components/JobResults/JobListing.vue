@@ -12,6 +12,9 @@
             <font-awesome-icon :icon="['fas', 'building']" class="mr-1" />
             <span>{{ job.organization }}</span>
           </div>
+          <div class="mr-5">
+            <span>{{ job.jobType }}</span>
+          </div>
 
           <div>
             <ul>

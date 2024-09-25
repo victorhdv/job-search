@@ -23,6 +23,7 @@
     </div>
   </collapsible-accordion>
 </template>
+
 <script>
 import CollapsibleAccordion from "@/components/Shared/CollapsibleAccordion.vue";
 import { mapState, mapActions } from "pinia";
