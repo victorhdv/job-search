@@ -68,6 +68,18 @@ describe("getters", () => {
     });
   });
 
+  describe("INCLUDE_JOB_BY_ORGANIZATION", () => {
+    describe("when the user has not selected any organization", () => {
+      it("includes job", () => {
+        const userStore = useUserStore();
+        userStore.selectedOrganizations = [];
+        const store = useJobsStore();
+
+        store.INCLUDE_JOB_BY_ORGANIZATION();
+      });
+    });
+  });
+
   describe("FILTERED_JOBS_BY_ORGANIZATIONS", () => {
     it("identifies jobs related to checked organizations", () => {
       const jobstore = useJobsStore();
@@ -108,27 +120,9 @@ describe("getters", () => {
       });
     });
   });
-});
 
-describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
-  it("identifies jobs related to checked job types", () => {
-    const jobstore = useJobsStore();
-    jobstore.jobs = [
-      { jobType: "intern" },
-      { jobType: "part-time" },
-      { jobType: "full-time" },
-    ];
-
-    const useStore = useUserStore();
-    useStore.selectedJobTypes = ["intern", "part-time"];
-
-    const result = jobstore.FILTERED_JOBS_BY_JOB_TYPES;
-
-    expect(result).toEqual([{ jobType: "intern" }, { jobType: "part-time" }]);
-  });
-
-  describe("user has not selected any job type", () => {
-    it("returns all job types", () => {
+  describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
+    it("identifies jobs related to checked job types", () => {
       const jobstore = useJobsStore();
       jobstore.jobs = [
         { jobType: "intern" },
@@ -137,15 +131,33 @@ describe("FILTERED_JOBS_BY_JOB_TYPES", () => {
       ];
 
       const useStore = useUserStore();
-      useStore.selectedJobTypes = [];
+      useStore.selectedJobTypes = ["intern", "part-time"];
 
       const result = jobstore.FILTERED_JOBS_BY_JOB_TYPES;
 
-      expect(result).toEqual([
-        { jobType: "intern" },
-        { jobType: "part-time" },
-        { jobType: "full-time" },
-      ]);
+      expect(result).toEqual([{ jobType: "intern" }, { jobType: "part-time" }]);
+    });
+
+    describe("user has not selected any job type", () => {
+      it("returns all job types", () => {
+        const jobstore = useJobsStore();
+        jobstore.jobs = [
+          { jobType: "intern" },
+          { jobType: "part-time" },
+          { jobType: "full-time" },
+        ];
+
+        const useStore = useUserStore();
+        useStore.selectedJobTypes = [];
+
+        const result = jobstore.FILTERED_JOBS_BY_JOB_TYPES;
+
+        expect(result).toEqual([
+          { jobType: "intern" },
+          { jobType: "part-time" },
+          { jobType: "full-time" },
+        ]);
+      });
     });
   });
 });
